@@ -70,7 +70,7 @@ const AddNew = ({ persons, setPersons, setMessage }) => {
         clearFields()
         closeMessage(setMessage)
       })
-      .catch((error) => {
+      .catch(() => {
         setMessage([
           `${newName} does not exist in server. Refresh page to update list.`,
           'errorMessage',
@@ -83,7 +83,7 @@ const AddNew = ({ persons, setPersons, setMessage }) => {
     event.preventDefault()
     const newPerson = { name: newName, number: newNumber }
     if (nameExists(newName)) {
-      if (window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)) {
+      if (window.confirm(`${newName} is already added to phonebook, replace the old number with a new one?`)) { //eslint-disable-line
         replaceNumber(newPerson)
         return
       }
@@ -120,15 +120,14 @@ const Numbers = ({
   const filteredList = persons.filter((p) => p.name.toLowerCase().includes(searchStr.toLowerCase()))
 
   const removePerson = (id, name) => {
-    if (window.confirm(`Delete ${name} ?`)) {
+    if (window.confirm(`Delete ${name} ?`)) { //eslint-disable-line
       remove(id)
-        .then((res) => {
+        .then(() => {
           setPersons(persons.filter((p) => p.id !== id))
           setMessage([`${name} deleted`, 'infoMessage'])
           closeMessage(setMessage)
         })
         .catch((err) => {
-          console.log(err)
           setMessage([`${err.message}, ${err.name}`, 'errorMessage'])
           closeMessage(setMessage)
         })
@@ -144,7 +143,7 @@ const Numbers = ({
             {p.name}
             {' '}
             {p.number}
-            <button onClick={() => removePerson(p.id, p.name)} className="redButton">delete</button>
+            <button type="button" onClick={() => removePerson(p.id, p.name)} className="redButton">delete</button>
           </li>
         ))}
       </ul>
