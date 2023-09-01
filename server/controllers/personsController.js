@@ -68,14 +68,6 @@ const deletePerson = (req, res, next) => {
     })
 }
 
-// const getVersion = (req, res) => {
-//   res.send('1')
-// }
-
-// const getHealth = (req, res) => {
-//   res.send('ok')
-// }
-
 module.exports = {
   getAll,
   getInfo,
@@ -83,6 +75,4 @@ module.exports = {
   addPerson,
   changePerson,
   deletePerson,
-  // getHealth,
-  // getVersion,
 }
