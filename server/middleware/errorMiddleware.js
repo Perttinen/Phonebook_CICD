@@ -1,5 +1,5 @@
 const errorHandler = (error, req, res, next) => {
-  console.error(error.message, error.name, error.extra)
+  console.error(error.message, error.name, error.extra) //eslint-disable-line
 
   if (error.name === 'ApplicationError') {
     return res.status(error.status).send({ error: error.message })
