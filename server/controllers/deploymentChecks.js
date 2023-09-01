@@ -1,5 +1,5 @@
 const getVersion = (req, res) => {
-  res.send('1')
+  res.send('2')
 }
 
 const getHealth = (req, res) => {
