@@ -1,0 +1,14 @@
+name: Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test_if_running_job:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Say running
+        run: |
+          echo "Pipeline started"
